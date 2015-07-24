@@ -1,1 +1,1 @@
-schedule: bundle exec bin/schedule
+web: bundle exec rackup config.ru -p $PORT -s Puma

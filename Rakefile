@@ -8,7 +8,7 @@ require 'trello_habit_rpg'
 
 task default: 'test'
 
-task :trello_habit_rpg do
+task :trello_to_habitrpg do
   TrelloHabitRPG.new.call
 end
 
