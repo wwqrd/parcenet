@@ -10,4 +10,5 @@ end
 
 get '/trello_to_habitrpg' do
   TrelloHabitRPG.new.call
+  "Done."
 end
