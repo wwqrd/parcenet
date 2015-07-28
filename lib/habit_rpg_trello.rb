@@ -20,7 +20,6 @@ class HabitRPGTrello
 
   def call
     todos.each do |todo|
-
       puts "#{todo.text}"
 
       card = trello.create(:card,
@@ -37,6 +36,8 @@ class HabitRPGTrello
         end
         card.add_checklist(checklist)
       end
+
+      todo.delete
     end
   end
 
