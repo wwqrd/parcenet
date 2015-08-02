@@ -1,7 +1,7 @@
 require 'trello'
-require 'habit_client'
+require 'habitica_client'
 
-class TrelloHabitRPG
+class TrelloHabitica
 
   def trello
     @trello ||= Trello::Client.new(
@@ -14,8 +14,8 @@ class TrelloHabitRPG
     @next_cards ||= trello.find(:lists, ENV['TRELLO_LIST_ID']).cards
   end
 
-  def hrpg
-    @hrpg ||= HabitClient.new(ENV['HRPG_USER_ID'], ENV['HRPG_API_TOKEN'])
+  def habitica
+    @habitica ||= HabiticaClient.new(ENV['HRPG_USER_ID'], ENV['HRPG_API_TOKEN'])
   end
 
   def call

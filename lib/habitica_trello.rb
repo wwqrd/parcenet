@@ -1,7 +1,7 @@
 require 'trello'
-require 'habit_client'
+require 'habitica_client'
 
-class HabitRPGTrello
+class HabiticaTrello
 
   def trello
     @trello ||= Trello::Client.new(
@@ -10,12 +10,12 @@ class HabitRPGTrello
     )
   end
 
-  def hrpg
-    @hrpg ||= HabitClient.new(ENV['HRPG_USER_ID'], ENV['HRPG_API_TOKEN'])
+  def habitica
+    @habitica ||= HabiticaClient.new(ENV['HRPG_USER_ID'], ENV['HRPG_API_TOKEN'])
   end
 
   def todos
-    hrpg.user.tasks.todos.reject(&:completed?)
+    habitica.user.tasks.todos.reject(&:completed?)
   end
 
   def call

@@ -4,17 +4,19 @@ $LOAD_PATH << root
 require 'dotenv'
 Dotenv.load
 
-require 'trello_habit_rpg'
-require 'habit_rpg_trello'
+require 'habitica_trello'
+require 'trello_habitica'
 
 task default: 'test'
 
-task :trello_to_habitrpg do
-  TrelloHabitRPG.new.call
+desc 'Move \'next\' tasks to habitica todo list'
+task :trello_to_habitica do
+  TrelloHabitica.new.call
 end
 
-task :habitrpg_to_trello do
-  HabitRPGTrello.new.call
+desc 'Move uncompleted habitica tasks back to \'inbox\''
+task :habitica_to_trello do
+  HabiticaTrello.new.call
 end
 
 task :test do
