@@ -11,4 +11,5 @@ gem 'habitica_client'
 
 group :test, :development do
   gem 'dotenv'
+  gem 'pry'
 end
