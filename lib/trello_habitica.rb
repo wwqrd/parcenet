@@ -18,19 +18,27 @@ class TrelloHabitica
     @habitica ||= HabiticaClient.new(ENV['HRPG_USER_ID'], ENV['HRPG_API_TOKEN'])
   end
 
+  def checklist_from_card(card)
+    card.checklists.flat_map do |checklist|
+      checklist.check_items.map do |task|
+        {text: task["name"]}
+      end
+    end
+  end
+
+  def task_from_card(card)
+    {text: card.name,
+     notes: card.desc,
+     type: 'todo',
+     checklist: checklist_from_card(card)}
+  end
+
   def call
     next_cards.each do |card|
+      puts "#{card.name}"
 
-      puts "#{card.name}: #{card.desc}"
-
-      hrpg.user.tasks.create(
-        text: card.name,
-        notes: card.desc,
-        type: 'todo'
-      )
-
-      card.close!
-
+      task = task_from_card(card)
+      card.close! if habitica.user.tasks.create(task)
     end
   end
 
