@@ -18,9 +18,17 @@ class HabiticaTrello
     habitica.user.tasks.todos.reject(&:completed?)
   end
 
+  def task_in_progress?(todo)
+    return false if todo.checklist.empty?
+
+    todo.checklist.any? { |task| task['completed'] }
+  end
+
   def call
     todos.each do |todo|
       puts "#{todo.text}"
+
+      next if task_in_progress?(task)
 
       card = trello.create(:card,
                            'name' => todo.text,
