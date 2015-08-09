@@ -28,7 +28,7 @@ class HabiticaTrello
     todos.each do |todo|
       puts "#{todo.text}"
 
-      next if task_in_progress?(task)
+      next if task_in_progress?(todo)
 
       card = trello.create(:card,
                            'name' => todo.text,
