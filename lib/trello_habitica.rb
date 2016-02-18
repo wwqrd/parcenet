@@ -33,7 +33,7 @@ class TrelloHabitica
      checklist: checklist_from_card(card)}
   end
 
-  def call
+  def run
     next_cards.each do |card|
       puts "#{card.name}"
 

@@ -10,11 +10,11 @@ get '/' do
 end
 
 get '/trello_to_habitica' do
-  TrelloHabitica.new.call
+  TrelloHabitica.new.run
   "Moved Trello tasks to Habitica."
 end
 
 get '/habitica_to_trello' do
-  HabiticaTrello.new.call
+  HabiticaTrello.new.run
   "Moved Habitica tasks to Trello"
 end

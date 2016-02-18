@@ -24,7 +24,7 @@ class HabiticaTrello
     todo.checklist.any? { |task| task['completed'] }
   end
 
-  def call
+  def run
     todos.each do |todo|
       puts "#{todo.text}"
 
