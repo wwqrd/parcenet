@@ -37,12 +37,11 @@ class HabiticaTrello
       unless todo.checklist.empty?
         checklist = trello.create(:checklist,
                                   'name' => 'Checklist',
-                                  'idBoard' => ENV['TRELLO_BOARD_ID'])
+                                  'idCard' => card.id)
         todo.checklist.each do |checklist_task|
           puts "\t#{checklist_task}"
           checklist.add_item(checklist_task['text'])
         end
-        card.add_checklist(checklist)
       end
 
       todo.delete
