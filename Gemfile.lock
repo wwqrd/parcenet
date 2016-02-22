@@ -14,6 +14,7 @@ GEM
     backports (3.6.8)
     builder (3.2.2)
     coderay (1.1.0)
+    diff-lcs (1.2.5)
     domain_name (0.5.20160128)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.0.2)
@@ -50,6 +51,19 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.3)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
     ruby-trello (1.4.1)
       activemodel (>= 3.2.0)
       addressable (~> 2.3)
@@ -86,7 +100,10 @@ DEPENDENCIES
   habitica_client
   pry
   puma
+  rack
+  rack-test
   rake
+  rspec
   ruby-trello
   sinatra
   sinatra-contrib
