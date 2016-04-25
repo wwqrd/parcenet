@@ -1,11 +1,10 @@
-root = File.expand_path('lib', File.dirname(__FILE__))
-$LOAD_PATH << root
-
+require './config/environment'
 require 'sinatra'
 require 'sinatra/namespace'
 require 'digest'
 require 'trello_habitica'
 require 'habitica_trello'
+
 
 def check_token(token)
   halt(401) unless token && valid_token?(token)

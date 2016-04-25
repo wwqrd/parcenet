@@ -1,9 +1,5 @@
-root = File.expand_path('lib', File.dirname(__FILE__))
-$LOAD_PATH << root
-
-require 'dotenv'
-Dotenv.load
-
+require './config/environment'
+require 'rspec/core/rake_task'
 require 'habitica_trello'
 require 'trello_habitica'
 
@@ -19,6 +15,4 @@ task :habitica_to_trello do
   HabiticaTrello.new.call
 end
 
-task :test do
-  puts 'UH OH! NO TESTS!'
-end
+RSpec::Core::RakeTask.new(:test)

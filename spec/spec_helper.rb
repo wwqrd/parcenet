@@ -1,7 +1,6 @@
+require File.expand_path '../../config/environment', __FILE__
 require 'rack/test'
 require 'rspec'
-require 'dotenv'
-Dotenv.load
 
 ENV['RACK_ENV'] = 'test'
 
