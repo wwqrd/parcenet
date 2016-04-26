@@ -7,11 +7,11 @@ require 'habitica_trello'
 
 
 def check_token(token)
-  halt(401) unless token && valid_token?(token)
+  halt(401) unless valid_token?(token)
 end
 
 def valid_token?(token)
-  ENV['TOKEN'] == Digest::SHA256.hexdigest(ENV['SALT'] + token)
+  token && ENV['TOKEN'] == Digest::SHA256.hexdigest(ENV['SALT'] + token)
 end
 
 get '/' do
