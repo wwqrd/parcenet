@@ -25,12 +25,12 @@ namespace '/do' do
   end
 
   get '/trello_to_habitica' do
-    #TrelloHabitica.new.run
+    TrelloHabitica.new.run
     "Moved Trello tasks to Habitica."
   end
 
   get '/habitica_to_trello' do
-    #HabiticaTrello.new.run
+    HabiticaTrello.new.run
     "Moved Habitica tasks to Trello"
   end
 
